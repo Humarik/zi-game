@@ -1,0 +1,293 @@
+@font-face {
+	font-family: "minecraft";
+	src: url('./fonts/1_Minecraft-Regular.ttf');
+}
+
+* {
+	box-sizing: border-box;
+}
+
+h2 {
+	margin: 0;
+}
+
+#root {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+#game-scores-container {
+	width: 100%;
+}
+
+body {
+	margin: 0px;
+	display: flex;
+	justify-content: center;
+	font-family: 'minecraft';
+}
+
+@keyframes opacity {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes turn {
+	0% {
+	 transform: rotate(10deg);
+	}
+	50% {
+		transform: rotate(-10deg)
+	}
+	100% {
+		transform: rotate(10deg);
+	}
+}
+
+@keyframes loader {
+	0% {
+		width: 100%;
+	}
+
+	100% {
+		width: 0%;
+	}
+}
+
+#skills-container {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	flex-grow: 0;
+}
+
+.granate-skill {
+	position: absolute;
+	width: 70px;
+	height: 70px;
+	background-image: url('./images/granate.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	align-self: flex-end;
+	left: 5px;
+}
+
+.cooldown {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	opacity: 0.7;
+}
+
+.loader {
+	background-color: black;
+	animation: loader 10s linear forwards;
+}
+
+.field-container {
+	position: relative;
+}
+
+.field {
+	position: relative;
+	margin: 0 auto;
+	display: flex;
+	width: 700px;
+	height: 780px;
+}
+
+.column {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	background-image: url('./images/cell-3.png');
+	background-size: contain;
+	background-repeat: repeat;
+}
+
+.game-score {
+	margin: 0 auto;
+	width: 500px;
+	height: 70px;
+	background-image: url('./images/bacInfoOut.jpg');
+	background-size: contain;
+	margin-bottom: 5px;
+	padding: 10px;
+}
+
+.game-score__description {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	font-size: 30px;
+	font-weight: 700;
+	width: 100%;
+	height: 100%;
+	background-image: url('./images/backInfoInnter.jpg');
+	background-size: contain;
+}
+
+.hit {
+	position: absolute;
+	left: 15%;
+	width: 70px;
+	height: 70px;
+	background-color: none;
+	background: none;
+	background-image: url('./images/boom.png');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.hit_show {
+	display: block;
+}
+.hit_hide {
+	display: none;
+}
+
+.zombie {
+	animation-name: opacity, turn;
+	animation-duration: 0.5s, 1s;
+	animation-iteration-count: 1, infinite;
+	position: absolute;
+	top: 0;
+	transition: top 0.3s ease-in;
+	width: 100%;
+	height: 50px;
+	background-image: url('./images/zombie-2.png');
+	background-size: 80%;
+	background-position: center;
+	background-repeat: no-repeat;
+	margin-bottom: 2px;
+}
+
+.player-field {
+	margin: 0 auto;
+	display: flex;
+	width: 700px;
+	background-color: coral;
+}
+
+.player-column {
+	flex-grow: 1;
+	height: 70px;
+	background-image: url('./images/ground.PNG');
+	background-size: contain;
+}
+
+.player {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background-image: url('./images/player-1.png');
+	background-size: 50%;
+	background-position: 30% 0;
+	background-repeat: no-repeat;
+}
+
+.player__shot {
+	position: absolute;
+	top: -19px;
+	left: 38%;
+	width: 30px;
+	height: 20px;
+	background-color: none;
+	background-image: url('./images/fire.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.player__shot_show {
+	display: block;
+}
+
+.player__shot_hide {
+	display: none;
+}
+
+.grenade {
+	position: absolute;
+	width: 100%;
+	height: 50px;
+	background-image: url('./images/granate.png');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	bottom: 0;
+}
+
+#overlay-container {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+}
+
+.overlay {
+	display: none;
+	background-color: rgba(104, 51, 51, 0.8);
+	width: 100%;
+	height: 100%;
+}
+
+.overlay_show {
+	display: block;
+}
+
+.restart-game {
+	width: 80px;
+	height: 30px;
+	border: 2px solid #000;
+	border-radius: 4px;
+	box-shadow: inset -2px -4px #0006, inset 2px 2px #FFF7;
+	cursor: pointer;
+	background-image: url('./images/btnBackground.png');
+	color: #ddd;
+	font-family: 'mincraft';
+	text-transform: uppercase;
+}
+
+.restart-game:hover {
+	background-color: rgba(100, 100, 255, .45);
+	text-shadow: 2px 2px #202013CC;
+	color: #FFFFA0;
+}
+
+.gameover-title {
+	text-transform: uppercase;
+	display: inline;
+	color: #ddd;
+	text-shadow: 6px 7px 1px black;
+	font-size: 50px;
+	font-weight: 900;
+	letter-spacing: 6px;
+}
+
+.game-end {
+	display: none;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	position: absolute;
+	width: 500px;
+	left: 50%;
+	margin-left: -250px;
+	height: 150px;
+	top: 50%;
+	margin-top: -75px;
+	z-index: 3;
+}
+
+.game-end_show {
+	display: flex;
+}
